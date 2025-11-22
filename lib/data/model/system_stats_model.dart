@@ -14,8 +14,8 @@ class SystemStatsModel extends SystemStats {
     required Map<String, dynamic> processJson,
   }) {
     return SystemStatsModel(
-      cpuUsage: statusJson["system"]["cpu_percent"]?.toDouble() ?? 0.0,
-      ramUsage: statusJson["system"]["memory_percent"]?.toDouble() ?? 0.0,
+      cpuUsage: statusJson["system"]["cpu_percent"]?.toDouble() * 100 ?? 0.0,
+      ramUsage: statusJson["system"]["memory_percent"]?.toDouble() * 100 ?? 0.0,
       activeProcesses: processJson["total"] ?? 0,
       alerts: List<String>.from(statusJson["recent_alerts"] ?? []),
     );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sysguard/core/app_const.dart';
+
 class ActiveProcesses extends StatefulWidget {
-    ActiveProcesses({super.key});
+  const ActiveProcesses({super.key});
 
   @override
   State<ActiveProcesses> createState() => _ActiveProcessesState();
@@ -48,7 +49,7 @@ class _ActiveProcessesState extends State<ActiveProcesses> {
           ),
           Expanded(
             child: ListView.builder(
-             // shrinkWrap: true,
+              // shrinkWrap: true,
               itemBuilder: (context, index) {
                 final p = processes[index];
                 return Padding(
@@ -62,7 +63,8 @@ class _ActiveProcessesState extends State<ActiveProcesses> {
                     ],
                   ),
                 );
-              },itemCount: processes.length,
+              },
+              itemCount: processes.length,
             ),
           ),
         ],
@@ -70,24 +72,18 @@ class _ActiveProcessesState extends State<ActiveProcesses> {
     );
   }
 }
- Widget column_titles(String text) {
-  return Expanded(
-    child:Text(
-      text,
-      style:TextStyle(
-        color: Colors.grey,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  );
-}
-  Widget data_from_api(String text) {
+
+Widget column_titles(String text) {
   return Expanded(
     child: Text(
       text,
-      style: TextStyle(
-        color: Colors.white,
-      ),
+      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
     ),
+  );
+}
+
+Widget data_from_api(String text) {
+  return Expanded(
+    child: Text(text, style: TextStyle(color: Colors.white)),
   );
 }

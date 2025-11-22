@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sysguard/core/app_const.dart';
+import 'package:sysguard/core/app_theme.dart';
 import 'package:sysguard/data/datasources/system_remote_datasource.dart';
 import 'package:sysguard/data/datasources/system_remote_datasource_impl.dart';
 import 'package:sysguard/data/repository/system_repo_impl.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: AppConst.appName,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: AppTheme.mainTheme,
       home: MultiRepositoryProvider(
         providers: [
           RepositoryProvider<SystemRemoteDataSource>(

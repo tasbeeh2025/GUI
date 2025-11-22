@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sysguard/core/app_const.dart';
 import 'package:sysguard/domain/repository/system_repo.dart';
 import 'package:sysguard/domain/usecases/get_system_stats.dart';
 import 'package:sysguard/presentation/bloc/system_state.dart';
+import 'package:sysguard/presentation/widget/cpu_usage.dart';
 import '../bloc/system_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("System Monitor")),
+      backgroundColor: Colors.black,
       body: BlocProvider(
         create: (context) => SystemCubit(
           GetSystemStatsUseCase(
@@ -38,9 +40,10 @@ class HomePage extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  childAspectRatio: 3,
+                  // childAspectRatio: 3,
                 ),
                 children: [
+                  CpuUsage(cpu: stats.cpuUsage, cpuHistory: state.cpuHistory!),
                   // _TileWidget(
                   //   title: "CPU Usage",
                   //   value: "${stats.cpuUsage.toStringAsFixed(1)}%",

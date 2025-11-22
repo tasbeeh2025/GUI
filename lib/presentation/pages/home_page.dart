@@ -4,8 +4,8 @@ import 'package:sysguard/core/app_const.dart';
 import 'package:sysguard/domain/repository/system_repo.dart';
 import 'package:sysguard/domain/usecases/get_system_stats.dart';
 import 'package:sysguard/presentation/bloc/system_state.dart';
-import 'package:sysguard/presentation/widget/cpu_usage.dart';
-import 'package:sysguard/presentation/widget/ram_usage.dart';
+import 'package:sysguard/presentation/widget/active_processes.dart';
+import 'package:sysguard/presentation/widget/alerts.dart';
 import '../bloc/system_cubit.dart';
 
 class HomePage extends StatelessWidget {

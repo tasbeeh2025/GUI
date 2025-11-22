@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sysguard/domain/repository/system_repo.dart';
 import 'package:sysguard/domain/usecases/get_system_stats.dart';
 import 'package:sysguard/presentation/bloc/system_state.dart';
+import 'package:sysguard/presentation/widget/active_processes.dart';
+import 'package:sysguard/presentation/widget/alerts.dart';
 import '../bloc/system_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,9 +40,11 @@ class HomePage extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  childAspectRatio: 3,
+                   childAspectRatio: 3,
                 ),
                 children: [
+                  ActiveProcesses(),
+                  WarningCard(),
                   // _TileWidget(
                   //   title: "CPU Usage",
                   //   value: "${stats.cpuUsage.toStringAsFixed(1)}%",

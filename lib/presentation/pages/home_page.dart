@@ -5,6 +5,7 @@ import 'package:sysguard/domain/repository/system_repo.dart';
 import 'package:sysguard/domain/usecases/get_system_stats.dart';
 import 'package:sysguard/presentation/bloc/system_state.dart';
 import 'package:sysguard/presentation/widget/cpu_usage.dart';
+import 'package:sysguard/presentation/widget/ram_usage.dart';
 import '../bloc/system_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -44,6 +45,7 @@ class HomePage extends StatelessWidget {
                 ),
                 children: [
                   CpuUsage(cpu: stats.cpuUsage, cpuHistory: state.cpuHistory!),
+                  RamUsage(ram: stats.ramUsage),
                   // _TileWidget(
                   //   title: "CPU Usage",
                   //   value: "${stats.cpuUsage.toStringAsFixed(1)}%",

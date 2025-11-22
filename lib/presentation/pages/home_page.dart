@@ -33,43 +33,33 @@ class HomePage extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: GridView(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 3,
+                ),
                 children: [
-                  _TileWidget(
-                    title: "CPU Usage",
-                    value: "${stats.cpuUsage.toStringAsFixed(1)}%",
-                  ),
-                  _TileWidget(
-                    title: "RAM Usage",
-                    value: "${stats.ramUsage.toStringAsFixed(1)}%",
-                  ),
-                  _TileWidget(
-                    title: "Active Processes",
-                    value: stats.activeProcesses.toString(),
-                  ),
-                  _TileWidget(title: "Alerts", value: stats.alerts.join(", ")),
+                  // _TileWidget(
+                  //   title: "CPU Usage",
+                  //   value: "${stats.cpuUsage.toStringAsFixed(1)}%",
+                  // ),
+                  // _TileWidget(
+                  //   title: "RAM Usage",
+                  //   value: "${stats.ramUsage.toStringAsFixed(1)}%",
+                  // ),
+                  // _TileWidget(
+                  //   title: "Active Processes",
+                  //   value: stats.activeProcesses.toString(),
+                  // ),
+                  // _TileWidget(title: "Alerts", value: stats.alerts.join(", ")),
                 ],
               ),
             );
           },
         ),
       ),
-    );
-  }
-}
-
-// Helper widget
-class _TileWidget extends StatelessWidget {
-  final String title;
-  final String value;
-  const _TileWidget({required this.title, required this.value});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12),
-      child: ListTile(title: Text(title), subtitle: Text(value)),
     );
   }
 }

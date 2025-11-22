@@ -32,13 +32,9 @@ class _ActiveProcessesState extends State<ActiveProcesses> {
         children: [
           Text(
             "Active Processes (Top 5)",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 12),
           Row(
             children: [
               column_titles("PID"),

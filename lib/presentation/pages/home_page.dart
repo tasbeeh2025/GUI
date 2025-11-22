@@ -6,6 +6,8 @@ import 'package:sysguard/domain/usecases/get_system_stats.dart';
 import 'package:sysguard/presentation/bloc/system_state.dart';
 import 'package:sysguard/presentation/widget/active_processes.dart';
 import 'package:sysguard/presentation/widget/alerts.dart';
+import 'package:sysguard/presentation/widget/cpu_usage.dart';
+import 'package:sysguard/presentation/widget/ram_usage.dart';
 import '../bloc/system_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -41,24 +43,13 @@ class HomePage extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  // childAspectRatio: 3,
+                  childAspectRatio: 2,
                 ),
                 children: [
                   CpuUsage(cpu: stats.cpuUsage, cpuHistory: state.cpuHistory!),
                   RamUsage(ram: stats.ramUsage),
-                  // _TileWidget(
-                  //   title: "CPU Usage",
-                  //   value: "${stats.cpuUsage.toStringAsFixed(1)}%",
-                  // ),
-                  // _TileWidget(
-                  //   title: "RAM Usage",
-                  //   value: "${stats.ramUsage.toStringAsFixed(1)}%",
-                  // ),
-                  // _TileWidget(
-                  //   title: "Active Processes",
-                  //   value: stats.activeProcesses.toString(),
-                  // ),
-                  // _TileWidget(title: "Alerts", value: stats.alerts.join(", ")),
+                  ActiveProcesses(),
+                  WarningCard(),
                 ],
               ),
             );

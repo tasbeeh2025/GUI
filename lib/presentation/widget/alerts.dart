@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sysguard/core/app_const.dart';
 
 class WarningCard extends StatelessWidget {
-
-  const WarningCard({super.key,});
+  const WarningCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,19 +12,20 @@ class WarningCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppConst.primaryColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: AppConst.warrningColor,
-          width: 1.3,
-        ),
+        border: Border.all(color: AppConst.warrningColor, width: 1.3),
       ),
       child: Column(
-         crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("System Warnings",style:TextStyle(color: Colors.white),),
-           warningCard("High CPU usage detected: 92%"),
-          SizedBox(height: 4,),
+          Text(
+            "System Warnings",
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          SizedBox(height: 12),
+          warningCard("High CPU usage detected: 92%"),
+          SizedBox(height: 4),
           warningCard("Memory near limit: 85%"),
-          SizedBox(height: 4,),
+          SizedBox(height: 4),
           warningCard("Disk space low: 15% remaining"),
         ],
       ),
@@ -35,15 +35,12 @@ class WarningCard extends StatelessWidget {
 
 Widget warningCard(String text) {
   return Container(
-    margin: const EdgeInsets.symmetric(vertical:4),
+    margin: const EdgeInsets.symmetric(vertical: 4),
     padding: const EdgeInsets.all(6),
     decoration: BoxDecoration(
-      color:AppConst.warrningBackgroundColor,
+      color: AppConst.warrningBackgroundColor,
       borderRadius: BorderRadius.circular(12),
-      border: Border.all(
-        color: AppConst.warrningColor,
-        width: 1.3,
-      ),
+      border: Border.all(color: AppConst.warrningColor, width: 1.3),
     ),
     child: Row(
       children: [
@@ -56,10 +53,7 @@ Widget warningCard(String text) {
         Expanded(
           child: Text(
             text,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-            ),
+            style: const TextStyle(color: Colors.white, fontSize: 15),
           ),
         ),
       ],
